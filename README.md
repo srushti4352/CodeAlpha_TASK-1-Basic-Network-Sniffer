@@ -38,6 +38,7 @@ This tool helps beginners understand how data flows through a network and provid
 The program uses **raw sockets** to intercept packets directly from the network interface. It then decodes the IP header and protocol details using the `struct` module and displays them in a readable format.
 
 ##Code
+
 from scapy.all import sniff, IP, TCP, UDP, ICMP
 from scapy.packet import Raw
 
@@ -63,6 +64,8 @@ print("🟢 Starting Network Sniffer... Press CTRL+C to stop.\n")
 sniff(prn=process_packet, store=False)
 
 Output:
+
+
 <img width="459" alt="image" src="https://github.com/user-attachments/assets/bbeb8849-4378-48d5-9697-a7b8edc02b83" />
 
 
