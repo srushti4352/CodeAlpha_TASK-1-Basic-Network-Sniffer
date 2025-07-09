@@ -39,30 +39,12 @@ The program uses **raw sockets** to intercept packets directly from the network 
 
 ##Code
 
-from scapy.all import sniff, IP, TCP, UDP, ICMP
-from scapy.packet import Raw
+<img width="521" alt="image" src="https://github.com/user-attachments/assets/434f572f-3755-4096-b6b7-b682f12359eb" />
 
-def process_packet(packet):
-    if IP in packet:
-        ip_layer = packet[IP]
-        proto = ip_layer.proto
-        proto_name = {6: "TCP", 17: "UDP", 1: "ICMP"}.get(proto, str(proto))
 
-        print("\n New Packet Captured:")
-        print(f" Source IP      : {ip_layer.src}")
-        print(f" Destination IP : {ip_layer.dst}")
-        print(f" Protocol       : {proto_name}")
 
-        if Raw in packet:
-            payload = packet[Raw].load
-            try:
-                print(f" Payload        : {payload[:64]}")
-            except:
-                print(f" Payload        : [unreadable]")
 
-print("🟢 Starting Network Sniffer... Press CTRL+C to stop.\n")
-sniff(prn=process_packet, store=False)
-
+           
 Output:
 
 
